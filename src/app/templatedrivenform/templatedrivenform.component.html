@@ -1,0 +1,33 @@
+
+
+<div class="container">
+     <h1 class="text-primary">Register</h1>
+     <form #registerForm="ngForm" (submit)="processRegisterForm(registerForm)">
+         <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username"  name="username" class="form-control" ngModel  #uname="ngModel" minlength="5" required>
+
+              <span *ngIf="uname.invalid">   
+                  <span class="text-danger" *ngIf="uname.invalid">Username is empty !!</span>
+                 
+              </span> 
+         </div>
+
+         <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" ngModel required>
+         </div>
+
+         <div class="form-group">
+            <label for="reEnterPassword">Re-Enter Password</label>
+            <input type="password" id="reEnterPassword" name="reEnterPassword" class="form-control" ngModel required>
+         </div>
+
+         <div class="form-group mt-2">
+            <input class="btn btn-primary" type="submit" name="registerBtn"  value="Register" />
+         </div>
+
+         
+     </form>
+
+</div>
