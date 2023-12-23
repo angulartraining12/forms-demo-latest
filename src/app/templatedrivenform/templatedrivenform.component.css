@@ -1,0 +1,7 @@
+.validInputClass {
+     border-color: green;
+}
+
+.invalidInputClass {
+    border-color: red;
+}

@@ -2,29 +2,105 @@
 
 <div class="container">
      <h1 class="text-primary">Register</h1>
-     <form #registerForm="ngForm" (submit)="processRegisterForm(registerForm)">
+
+
+     <form #registerForm="ngForm" 
+           (submit)="processRegisterForm(registerForm)">
+
+
+
          <div class="form-group">
               <label for="username">Username</label>
-              <input type="text" id="username"  name="username" class="form-control" ngModel  #uname="ngModel" minlength="5" required>
 
-              <span *ngIf="uname.invalid">   
-                  <span class="text-danger" *ngIf="uname.invalid">Username is empty !!</span>
-                 
-              </span> 
+              <!-- <input type="text" 
+                     id="username"  
+                     name="username" 
+                     ngModel
+                     #uname="ngModel"
+                     class="form-control"    
+                     minlength="5" 
+                     required> -->
+
+
+                     <input type="text" 
+                     id="username"  
+                     name="username" 
+                     [(ngModel)]="registerData.username"
+                     #uname="ngModel"
+                     class="form-control"    
+                     minlength="5" 
+                     [ngClass]="uname.touched && uname.dirty && uname.invalid ? invalidInput : validInput"
+                     required>
+
+
+
+              <div *ngIf="uname.touched && uname.dirty && uname.invalid" class="text-danger">
+                   <span *ngIf="uname.errors?.['required']">Username shouldn't be empty !!</span>
+                   <span *ngIf="uname.errors?.['minlength']">Username  length should be atelast 5 !!</span>
+               </div>
          </div>
+
+
+
 
          <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" class="form-control" ngModel required>
+            <!-- <input type="password" 
+                   id="password" 
+                   name="password" 
+                   class="form-control"
+                   #pwd="ngModel" 
+                   ngModel 
+                   required
+                   minlength="8"> -->
+
+                   <input type="password" 
+                   id="password" 
+                   name="password" 
+                   class="form-control"
+                   #pwd="ngModel" 
+                   [(ngModel)] = "registerData.password"
+                   required
+                   minlength="8"> 
+                   
+
+            <div *ngIf="pwd.touched && pwd.dirty && pwd.invalid" class="text-danger">
+                  <span *ngIf="pwd.errors?.['required']">Password shouldn't be empty !!</span>
+                  <span *ngIf="pwd.errors?.['minlength']">Password  length should be atelast 8 !!</span>
+            </div>
          </div>
 
          <div class="form-group">
             <label for="reEnterPassword">Re-Enter Password</label>
-            <input type="password" id="reEnterPassword" name="reEnterPassword" class="form-control" ngModel required>
+            <!-- <input type="password"
+                   id="reEnterPassword"
+                   name="reEnterPassword" 
+                   class="form-control" 
+                   #reenterpwd="ngModel" 
+                   ngModel 
+                   required
+                   minlength="8"> -->
+
+                   <input type="password"
+                   id="reEnterPassword"
+                   name="reEnterPassword" 
+                   class="form-control" 
+                   #reenterpwd="ngModel" 
+                   [(ngModel)]="registerData.reenterPassword"
+                   required
+                   minlength="8">
+               <div *ngIf="reenterpwd.touched && reenterpwd.dirty && reenterpwd.invalid" class="text-danger">
+                     <span *ngIf="pwd.errors?.['required']">Password shouldn't be empty !!</span>
+                     <span *ngIf="pwd.errors?.['minlength']">Password  length should be atelast 8 !!</span>
+               </div>
          </div>
 
          <div class="form-group mt-2">
-            <input class="btn btn-primary" type="submit" name="registerBtn"  value="Register" />
+            <input class="btn btn-primary" 
+                   type="submit"
+                   name="registerBtn"  
+                   value="Register" 
+                   [disabled]="registerForm.invalid"/>
          </div>
 
          

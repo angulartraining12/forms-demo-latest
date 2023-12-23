@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { RegisterData } from '../register-data';
 
 @Component({
   selector: 'app-templatedrivenform',
@@ -7,10 +8,21 @@ import { NgForm } from '@angular/forms';
   styleUrl: './templatedrivenform.component.css'
 })
 export class TemplatedrivenformComponent {
+  registerData: RegisterData= new RegisterData();
+  validInput  : string = "validInputClass";
+  invalidInput  : string = "invalidInputClass";
 
     processRegisterForm(registerData : NgForm){
       console.log('Register form has been submitted');
-      console.log('registerData -> '+JSON.stringify(registerData.value));
+      console.log('registerData : from ngForm -> '+JSON.stringify(registerData.value));
+      console.log('registerData from class -> '+JSON.stringify(this.registerData));
+    }
+
+
+    registerUser(){
+      // call service by passing the registerData
+      // service.registerUser(this.registerData);
+      // service.registerUser(username, password, reenterpassword);
     }
 
 }
