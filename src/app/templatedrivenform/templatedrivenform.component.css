@@ -5,3 +5,14 @@
 .invalidInputClass {
     border-color: red;
 }
+
+#username.ng-valid {
+    border-color: green;
+}
+
+#username.ng-touched.ng-dirty.ng-invalid {
+    border-color: red;
+}
+
+
+/* "{'validInputClass':uname.valid,   'invalidInputClass':uname.touched && uname.dirty && uname.invalid}"    */

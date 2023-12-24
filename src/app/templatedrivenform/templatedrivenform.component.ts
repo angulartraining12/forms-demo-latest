@@ -12,6 +12,9 @@ export class TemplatedrivenformComponent {
   validInput  : string = "validInputClass";
   invalidInput  : string = "invalidInputClass";
 
+  location  = {'name' : 'Hyd', 'zipcode':'500050'};
+
+
     processRegisterForm(registerData : NgForm){
       console.log('Register form has been submitted');
       console.log('registerData : from ngForm -> '+JSON.stringify(registerData.value));
