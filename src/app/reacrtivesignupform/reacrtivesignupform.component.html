@@ -1,0 +1,30 @@
+
+<div class="container">
+    
+    <h1 class="text-center text-primary">Registration Form</h1>
+    <form [formGroup]="signupForm" id="signupfrm" (submit)="processSignupData()">
+
+        <div class="form-group mt-4">
+           <label for="firstname">Firstname </label>
+           <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstname">
+        </div>
+        
+        <div *ngIf="signupForm.controls['firstname'].invalid">
+             <span *ngIf="signupForm.controls['firstname'].touched && signupForm.controls['firstname'].errors?.['required']" class="text-danger">Firstname shouldn't be left empty</span>
+             <span *ngIf="signupForm.controls['firstname'].touched && signupForm.controls['firstname'].errors?.['minlength']" class="text-danger">Firstname value length should be atleast 5</span>
+        </div>
+
+
+
+        
+        <div class="form-group mt-4 text-center">
+            <input type="submit" class="btn btn-success" value="Signup"  [disabled]="signupForm.invalid">
+         </div>
+
+    </form>
+ 
+
+
+
+
+</div>

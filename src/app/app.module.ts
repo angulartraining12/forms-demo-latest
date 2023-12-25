@@ -1,20 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplatedrivenformComponent } from './templatedrivenform/templatedrivenform.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReacrtivesignupformComponent } from './reacrtivesignupform/reacrtivesignupform.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplatedrivenformComponent
-  ],
+    TemplatedrivenformComponent,
+    ReacrtivesignupformComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
