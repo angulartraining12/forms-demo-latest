@@ -8,15 +8,94 @@
            <label for="firstname">Firstname </label>
            <input type="text" class="form-control" id="firstname" name="firstname" formControlName="firstname">
         </div>
-        
         <div *ngIf="signupForm.controls['firstname'].invalid">
              <span *ngIf="signupForm.controls['firstname'].touched && signupForm.controls['firstname'].errors?.['required']" class="text-danger">Firstname shouldn't be left empty</span>
              <span *ngIf="signupForm.controls['firstname'].touched && signupForm.controls['firstname'].errors?.['minlength']" class="text-danger">Firstname value length should be atleast 5</span>
         </div>
 
+        <div class="form-group">
+            <label for="lastname">Lastname </label>
+            <input type="text" class="form-control" id="lastname" name="lastname" formControlName="lastname">
+         </div>
+         <div *ngIf="signupForm.controls['lastname'].invalid">
+            <span *ngIf="signupForm.controls['lastname'].touched && signupForm.controls['lastname'].errors?.['required']" class="text-danger">Lastname shouldn't be left empty</span>
+            <span *ngIf="signupForm.controls['lastname'].touched && signupForm.controls['lastname'].errors?.['minlength']" class="text-danger">Lastname value length should be atleast 5</span>
+         </div>
+
+         <div class="form-group">
+            <label for="username">Username </label>
+            <input type="text" class="form-control" id="username" name="username" formControlName="username">
+         </div> 
+         <div *ngIf="signupForm.controls['username'].invalid">
+            <span *ngIf="signupForm.controls['username'].touched && signupForm.controls['username'].errors?.['required']" class="text-danger">Username shouldn't be left empty</span>
+            <span *ngIf="signupForm.controls['username'].touched && signupForm.controls['username'].errors?.['minlength']" class="text-danger">Username value length should be atleast 5</span>
+         </div>
+
+         <div class="form-group">
+            <label for="password">Password </label>
+            <input type="password" class="form-control" id="password" name="password" formControlName="password">
+         </div>
+         <div *ngIf="signupForm.controls['password'].invalid">
+            <span *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].errors?.['required']" class="text-danger">Password shouldn't be left empty</span>
+            <span *ngIf="signupForm.controls['password'].touched && signupForm.controls['password'].errors?.['minlength']" class="text-danger">Password value length should be atleast 5</span>
+         </div>
+
+         <div class="form-group">
+            <label for="reEnterPassword">Re-enter Password</label>
+            <input type="password" class="form-control" id="reEnterPassword" name="reEnterPassword" formControlName="reEnterPassword">
+         </div>
 
 
-        
+         <div *ngIf="signupForm.controls['password'].valid && signupForm.controls['reEnterPassword'].valid">
+            <span *ngIf="signupForm.controls['password'].value != signupForm.controls['reEnterPassword'].value" class="text-danger">Password and Re-enter password should be  same</span>
+
+         </div>
+
+         <div *ngIf="signupForm.controls['reEnterPassword'].invalid">
+            <span *ngIf="signupForm.controls['reEnterPassword'].touched && signupForm.controls['reEnterPassword'].errors?.['required']" class="text-danger">Re-enter Password shouldn't be left empty</span>
+             <span></span>
+         </div>
+         
+         <div class="form-group">
+            <label for="email">Email </label>
+            <input type="email" class="form-control" id="email" name="email" formControlName="email">
+         </div>
+         <div *ngIf="signupForm.controls['email'].invalid"> 
+         <span *ngIf="signupForm.controls['email'].touched && signupForm.controls['email'].errors?.['required']" class="text-danger">Email shouldn't be left empty</span>
+         </div>
+
+         <div class="form-group">
+            <label for="mobile">Mobile </label>
+            <input type="text" class="form-control" id="mobile" name="mobile" formControlName="mobile">
+         </div>
+         <div *ngIf="signupForm.controls['mobile'].invalid">
+         <span *ngIf="signupForm.controls['mobile'].touched && signupForm.controls['mobile'].errors?.['required']" class="text-danger">Mobile shouldn't be left empty</span>
+         </div>
+
+         <div>
+            <label for="gender">Gender</label>
+            <select class="form-select" id="gender" formControlName="gender">
+               <option value="">Select Gender</option>
+               <option value="male">Male</option>
+               <option value="female">Female</option>
+               <option value="custom">Custom</option>
+               <option value="can't reveal">Can't reveal</option>
+            </select>
+
+         </div>
+
+
+         <div class="form-group">
+            <label for="dob">DOB </label>
+            <input type="date" class="form-control" id="dob" name="dob" formControlName="dob">
+         </div>
+
+         <div *ngIf="signupForm.controls['dob'].invalid">
+         <span *ngIf="signupForm.controls['dob'].touched && signupForm.controls['dob'].errors?.['required']" class="text-danger">DOB  shouldn't be left empty</span>
+         </div>   
+
+
+
         <div class="form-group mt-4 text-center">
             <input type="submit" class="btn btn-success" value="Signup"  [disabled]="signupForm.invalid">
          </div>
