@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-reacrtivesignupform',
@@ -9,9 +10,7 @@ import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms'
 export class ReacrtivesignupformComponent {
      //formBuilder : FormBuilder;
 
-     constructor(private formBuilder : FormBuilder){
-          //this.formBuilder = formBuilder;
-     }
+    
 
 
   // signupForm: FormGroup  = new FormGroup({
@@ -25,6 +24,10 @@ export class ReacrtivesignupformComponent {
   //     'dob' : new FormControl("", [Validators.required]),
   //     'gender' : new FormControl("", [Validators.required])
   // });
+
+  constructor(private formBuilder : FormBuilder, private userService : UserService){
+    //this.formBuilder = formBuilder;
+ }
 
   signupForm: FormGroup  = this.formBuilder.group({
     firstname : ["", [Validators.required, Validators.minLength(5)]],
@@ -42,5 +45,6 @@ export class ReacrtivesignupformComponent {
 
   processSignupData() {
     console.log(this.signupForm.value);
+    this.userService.registerUser(this.signupForm.value);
   }
 }

@@ -8,6 +8,8 @@ import { TemplatedrivenformComponent } from './templatedrivenform/templatedriven
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReacrtivesignupformComponent } from './reacrtivesignupform/reacrtivesignupform.component';
 
+import { UserService } from './user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,7 @@ import { ReacrtivesignupformComponent } from './reacrtivesignupform/reacrtivesig
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
