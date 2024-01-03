@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { RegisterData } from './register-data';
 import { FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  //httpClient1 : HttpClient = new HttpClient();
 
-  constructor() { }
+  constructor(private httpClient : HttpClient) { }   // dependency Injection
 
-  registerUser(signupForm: FormGroup){
+  registerUser(signupForm: FormGroup) :Observable<any> {
       console.log('UserService : registerUser is called '+signupForm.value);
-            // Logic goes here to call server side program which persists or stores the data in DB table.
+      return this.httpClient.post<any>("http://localhost:8080/api/users", signupForm);
   }
 }
