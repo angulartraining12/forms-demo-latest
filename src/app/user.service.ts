@@ -15,7 +15,7 @@ export class UserService {
   constructor(private httpClient : HttpClient) { }   // dependency Injection
 
   registerUser(signupForm: FormGroup) :Observable<any> {
-      console.log('UserService : registerUser is called '+signupForm.value);
+      console.log('UserService : registerUser is called '+signupForm);
       return this.httpClient.post<any>("http://localhost:8080/api/users", signupForm);
   }
 }
