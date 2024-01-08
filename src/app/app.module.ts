@@ -9,13 +9,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReacrtivesignupformComponent } from './reacrtivesignupform/reacrtivesignupform.component';
 
 import { UserService } from './user.service';
+import { AuthorsService } from './authors.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthorsComponent } from './authors/authors.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplatedrivenformComponent,
-    ReacrtivesignupformComponent
+    ReacrtivesignupformComponent,
+    AuthorsComponent
     ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
     
   ],
-  providers: [UserService],
+  providers: [UserService, AuthorsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

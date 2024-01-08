@@ -1,0 +1,30 @@
+
+      <div class="container">
+          <h1>Authors</h1>
+
+
+          <table class="table table-bordered">
+             <thead>
+                <tr>
+                   <th>Id</th>
+                   <th>Book Id</th>
+                   <th>Firstname</th>
+                   <th>Lastname</th>
+                </tr>
+             </thead>
+             <tbody>
+                 <tr *ngFor="let author of authors">
+                      <td>{{author.id}}</td>
+                      <th>{{author.idBook}}</th>
+                      <th>{{author.firstName}}</th>
+                      <th>{{author.lastName}}</th>
+                 </tr>
+
+             </tbody>
+          </table>
+ 
+
+
+      </div>
+
+    

@@ -12,6 +12,7 @@ export class ReacrtivesignupformComponent {
      //formBuilder : FormBuilder;
      isUserAdded : boolean = false;
      errorCode : number = 0;
+     isFormSubmitted : boolean = false;
 
     
   constructor(private formBuilder : FormBuilder, private userService : UserService){
@@ -20,6 +21,7 @@ export class ReacrtivesignupformComponent {
 
  processSignupData() {
   console.log(this.signupForm.value);
+  this.isFormSubmitted = true;
   this.userService.registerUser(this.signupForm.value).subscribe(
         (response:any) => {    // success handling
                 console.log('response received -> '+JSON.stringify(response));
@@ -29,6 +31,7 @@ export class ReacrtivesignupformComponent {
         (error : HttpErrorResponse) => {
              console.log('Encountered error while calling addUsers API :: ');
              console.log('Error Details ::'+error.status);
+             this.errorCode = error.status;
         }
   );
 }

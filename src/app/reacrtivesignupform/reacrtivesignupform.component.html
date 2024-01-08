@@ -100,11 +100,22 @@
             <input type="submit" class="btn btn-success" value="Signup"  [disabled]="signupForm.invalid">
          </div>
 
+         <!---Registraiton success scenario-->
+         <div  class="alert alert-success mt-2" *ngIf="isFormSubmitted && isUserAdded">
+            <span>You're registered successfully !!</span>
+        </div>
+
+        <!---Registraiton failure scenario-->
+        <div  class="alert alert-danger mt-2" *ngIf="isFormSubmitted && isUserAdded == false"  [ngSwitch]="errorCode">
+            <span *ngSwitchCase=500>Sorry !! Currently we are facing technical issues, please retry after sometime.</span>
+            <span *ngSwitchCase=400>Sorry !! Currently we are facing technical issues, please retry after sometime.</span>
+            <span *ngSwitchCase=404>Sorry !! We can't fulfill your request now.</span>
+            <span *ngSwitchDefault>Your registration failed...please try again</span>
+       </div>
+
     </form>
  
-     <div  class="alert alert-success mt-2" *ngIf="isUserAdded">
-         <span>You're registered successfully !!</span>
-     </div>
+    
 
 
 
