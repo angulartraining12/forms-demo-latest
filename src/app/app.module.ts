@@ -12,13 +12,15 @@ import { UserService } from './user.service';
 import { AuthorsService } from './authors.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthorsComponent } from './authors/authors.component';
+import { AuthorsbybookidComponent } from './authorsbybookid/authorsbybookid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplatedrivenformComponent,
     ReacrtivesignupformComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    AuthorsbybookidComponent
     ],
   imports: [
     BrowserModule,
