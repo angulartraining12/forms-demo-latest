@@ -1,0 +1,48 @@
+
+
+<div class="container">
+    
+    <h1 class="text-center text-primary">Login Form</h1>
+    <form [formGroup]="loginForm" id="loginFrm" (submit)="processLoginData()">
+
+       
+
+      
+         <div class="form-group">
+            <label for="username">Username </label>
+            <input type="text" class="form-control" id="username" name="username" formControlName="username">
+         </div> 
+         <div *ngIf="loginForm.controls['username'].invalid">
+            <span *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].errors?.['required']" class="text-danger">Username shouldn't be left empty</span>
+            <span *ngIf="loginForm.controls['username'].touched && loginForm.controls['username'].errors?.['minlength']" class="text-danger">Username value length should be atleast 5</span>
+         </div>
+
+         <div class="form-group">
+            <label for="password">Password </label>
+            <input type="password" class="form-control" id="password" name="password" formControlName="password">
+         </div>
+         <div *ngIf="loginForm.controls['password'].invalid">
+            <span *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['required']" class="text-danger">Password shouldn't be left empty</span>
+            <span *ngIf="loginForm.controls['password'].touched && loginForm.controls['password'].errors?.['minlength']" class="text-danger">Password value length should be atleast 5</span>
+         </div>
+
+         
+         <div *ngIf="isUserLoggedIn">
+            <span  class="text-success">You're loggedin</span>
+            </div>  
+
+
+
+        <div class="form-group mt-4 text-center">
+            <input type="submit" class="btn btn-success" value="LogIn"  [disabled]="loginForm.invalid">
+         </div>
+
+        
+    </form>
+ 
+    
+
+
+
+
+</div>

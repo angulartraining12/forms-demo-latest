@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../user.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reacrtivesignupform',
@@ -15,9 +16,11 @@ export class ReacrtivesignupformComponent {
      isFormSubmitted : boolean = false;
 
     
-  constructor(private formBuilder : FormBuilder, private userService : UserService){
+  constructor(private formBuilder : FormBuilder, 
+             private userService : UserService,
+             private router : Router){
     //this.formBuilder = formBuilder;
- }
+  }
 
  processSignupData() {
   console.log(this.signupForm.value);
@@ -26,6 +29,7 @@ export class ReacrtivesignupformComponent {
         (response:any) => {    // success handling
                 console.log('response received -> '+JSON.stringify(response));
                 this.isUserAdded = true;
+                this.router.navigate(['/login']);
         },
    
         (error : HttpErrorResponse) => {

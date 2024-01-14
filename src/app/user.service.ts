@@ -19,6 +19,10 @@ export class UserService {
       return this.httpClient.post<any>("http://localhost:8080/api/users", signupForm);
   }
 
+  validateLoginUser(loginForm: FormGroup) :Observable<any> {
+    console.log('UserService : loginService  is called '+loginForm);
+    return this.httpClient.post<any>("http://localhost:8080/api/users/login", loginForm);
+}
 
 
 }
